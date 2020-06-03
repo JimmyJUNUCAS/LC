@@ -27,6 +27,16 @@ def maxDepth(root):
         return max(left_height,right_height)+1
 print(maxDepth(l1_1))
 
+def maxDepth(root):
+    if root == None:
+        return 0
+    else:
+        left_height = maxDepth(root.left)
+        right_height = maxDepth(root.right)
+        return max(left_height,right_height)+1
+print(maxDepth(l1_1))
+
+
 from collections import deque
 def minDepth(root):
     if not root:
@@ -42,3 +52,35 @@ def minDepth(root):
                 if c:
                     node_deque.append((depth+1,c))
 print(minDepth(l1_1))
+
+from collections import deque
+def minDepth(root):
+    if root == None:
+        return 0
+    else:
+        node_deque = deque([(1,root),])
+        while node_deque:
+            depth,root = node_deque.popleft()
+            children = [root.left,root.right]
+            if not any(children):
+                return depth
+            for c in children:
+                if c:
+                    node_deque.append((depth+1,c))
+print(minDepth(l1_1))
+
+from collections import deque
+def minDepth(root):
+    if root == None:
+        return 0
+    else:
+        node_deque = deque([(1,root),])
+        while node_deque:
+            depth,root = node_deque.popleft()
+            children = [root.left,root.right]
+            if not any(children):
+                return depth
+            for c in children:
+                if c:
+                    node_deque.append((depth+1,c))
+
