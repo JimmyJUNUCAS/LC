@@ -29,3 +29,65 @@ def inorderTraversal(root):
     return res
 print(inorderTraversal(l1_1))
 
+def preorderTraversal(root):
+    res = []
+    def dfs(root):
+        if not root : return 0
+        res.append(root.val)
+        dfs(root.left)
+        dfs(root.right)
+    dfs(root)
+    return res
+print(preorderTraversal(l1_1))
+
+def postorderTraversal(root):
+    res = []
+    def dfs(root):
+        if not root : return 0
+        dfs(root.left)
+        dfs(root.right)
+        res.append(root.val)
+    dfs(root)
+    return res
+print(postorderTraversal(l1_1))
+
+def inorderTraversal(root):
+    res = []
+    stack = []
+    while root or stack:
+        if root:
+            stack.append(root)
+            root = root.left
+        else:
+            tmp = stack.pop()
+            res.append(tmp.val)
+            root = tmp.right
+    return res
+print(inorderTraversal(l1_1))
+
+def preorderTraversal(root):
+    res = []
+    stack = [root,]
+    while stack and root:
+        root = stack.pop()
+        res.append(root.val)
+        if root.right is not None:
+            stack.append(root.right)
+        if root.left is not None:
+            stack.append(root.left)
+    return res
+print(preorderTraversal(l1_1))
+
+def postorderTraversal(root):
+    res = []
+    stack = [root,]
+    while stack and root:
+        root = stack.pop()
+        res.append(root.val)
+        if root.left is not None:
+            stack.append(root.left)
+        if root.right is not None:
+            stack.append(root.right)
+    return res[::-1]
+print(postorderTraversal(l1_1))
+
