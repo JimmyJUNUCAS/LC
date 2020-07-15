@@ -18,8 +18,3 @@ l1_2.right = l1_4
 l1_4.left = l1_5
 l1_4.right = l1_6
 
-# def isSameTree
-#
-# def isSymmetric
-#
-# def invertTree
